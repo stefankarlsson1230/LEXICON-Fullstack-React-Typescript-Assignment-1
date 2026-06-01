@@ -19,7 +19,7 @@ function runExercise1() {
 function runExercise2() {
   const firstName: string = readLine('First name: ');
   const lastName: string = readLine('Last name: ');
-  console.group(`Hello ${firstName} ${lastName}! Have a nice day!`);
+  console.log(`Hello ${firstName} ${lastName}! Have a nice day!`);
 }
 
 
@@ -135,15 +135,20 @@ function runExercise9() {
 
   let isPalindrome: boolean = true;
 
-  for (let i = 0; i < cleanedString.length; i++) {
-    if (cleanedString[i] !== cleanedString[cleanedString.length - 1 - i]) {
-      isPalindrome = false;
-      break;
-    }
-  }
+  if (cleanedString.length <= 1) {
+    console.log(`${input} is a palindrome`);
+  } else {
 
-  if(isPalindrome) console.log(`${input} is a palindrome`);
-  else console.log(`${input} is not a palindrome`);
+    for (let i = 0; i < cleanedString.length; i++) {
+      if (cleanedString[i] !== cleanedString[cleanedString.length - 1 - i]) {
+        isPalindrome = false;
+        break;
+      }
+    }
+
+    if(isPalindrome) console.log(`${input} is a palindrome`);
+    else console.log(`${input} is not a palindrome`);
+  }
 }
 
 
@@ -474,6 +479,8 @@ function runExercise19() {
 
 
 // ---------- Excercise 20 ----------
+// This function will only show that swap does not work, only the local copies in
+// the function are swapped 
 function runExercise20() {
   let x = 1;
   let y = 2;
